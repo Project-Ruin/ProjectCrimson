@@ -2,7 +2,10 @@
 <html>  
   <title> Project Ruin</title>
 <head>  
-</head>  
+</head> 
+  <header>  
+  <img src="images/your-logo.png" alt="Website Logo" id="websiteLogo">  
+</header>  
 <body>  
   <div id="menu">  
     <button onclick="window.location.href='#game-section'">Games</button>  
