@@ -53,19 +53,27 @@
       <button onclick="window.location.href='#game-section'">Games</button>  
       <button id="chatRoomBtn">Chat Room</button>  
       <button onclick="window.location.href='#link-room'">Link Room</button>  
-    </div>    
-  </header>  
-  
-  <div id="game-section">  
-    <!-- Game content goes here -->  
-  </div>  
-  
-  <div id="chat-room" class="hidden">  
-    <!-- Chat room content will be shown here after clicking the Chat Room button -->  
-  <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">{"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}</script>
- 
-  </div>  
-  
-  <script>  
+    </div>      
+  </header>    
+    
+  <div id="game-section">    
+    <!-- Game content goes here -->    
+  </div>    
+    
+  <div id="chat-room" class="hidden">    
+    <!-- Chatango Chat Box Embed Code -->  
+    <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">  
+        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}  
+    </script>  
+    <!-- End of Chatango Chat Box Embed Code -->  
+  </div>    
+    
+  <script>    
     document.getElementById('chatRoomBtn').addEventListener('click', function() {  
+      document.getElementById('chat-room').classList.toggle('hidden');  
+    });  
+  </script>  
+    
+</body>  
+</html>  
 
