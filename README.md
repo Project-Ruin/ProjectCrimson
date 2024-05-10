@@ -14,13 +14,13 @@
       justify-content: flex-end; /* Aligns the content to the right */  
       align-items: center; /* Vertically centers the content */  
       padding: 10px; /* Adds some padding around the content */  
+      position: relative; /* Ensures header content is positioned correctly */  
       width: 100%;  
     }  
     #menu {  
-      position: absolute; /* Changed to absolute for top-right positioning */  
-      right: 0; /* Aligns the menu to the right */  
-      top: 0; /* Aligns the menu to the top */  
-      margin: 10px; /* Adds some space from the top and right edges */  
+      position: absolute; /* Adjusted for top-right positioning */  
+      right: 10px; /* Aligns the menu to the right edge */  
+      top: 10px; /* Aligns the menu to the top edge */  
     }  
     #menu button {  
       background-color: transparent; /* Makes the button background transparent */  
@@ -35,14 +35,13 @@
       color: black; /* Changes text color to black on hover */  
     }  
     #websiteLogo {  
-      max-width: 100px; /* Adjust logo size as needed */  
-      display: block; /* Ensures the logo is block-level for proper spacing */  
-      position: absolute; /* Added to ensure logo stays at the top left */  
+      position: absolute; /* Ensures the logo is positioned correctly */  
       left: 10px; /* Space from the left edge */  
       top: 10px; /* Space from the top edge */  
+      max-width: 100px; /* Adjust logo size as needed */  
     }  
     .hidden {  
-      display: none;  
+      display: none; /* Hides elements with class 'hidden' */  
     }  
   </style>  
 </head>  
@@ -51,9 +50,9 @@
     <img src="download(5).jpeg" alt="Website Logo" id="websiteLogo">  
     <div id="menu">  
       <button onclick="window.location.href='#game-section'">Games</button>  
-      <button id="chatRoomBtn">Chat Room</button>  
+      <button id="chatRoomBtn" onclick="window.open('https://discord.gg/yourInviteCode', '_blank')">Chat Room</button>  
       <button onclick="window.location.href='#link-room'">Link Room</button>  
-    </div>    
+    </div>  
   </header>  
   
   <div id="game-section">  
@@ -61,12 +60,13 @@
   </div>  
   
   <div id="chat-room" class="hidden">  
-    <!-- Chat room content will be shown here after clicking the Chat Room button -->  
+    <!-- Chat room content will be shown here if needed for other purposes -->  
     <p>Chat room content...</p>  
   </div>  
   
-  <script>  
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
+</body>  
+</html>  
+  
       var chatRoom = document.getElementById('chat-room');  
       chatRoom.classList.toggle('hidden');  
     });  
