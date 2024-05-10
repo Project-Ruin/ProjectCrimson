@@ -3,13 +3,11 @@
 <head>  
   <title>Project Ruin</title>  
   <style>  
-    html, body {  
+    body {  
       margin: 0;  
       padding: 0;  
-      width: 100%;  
-      height: 100%;  
-      background-color: black; /* Ensures the entire page is black */  
-      color: white; /* Ensures text is white for contrast */  
+      background-color: black; /* Sets the background color of the website to black */  
+      color: white; /* Sets the text color to white for better contrast */  
     }  
     header {  
       position: relative;  
@@ -22,20 +20,20 @@
       padding: 10px;  
     }  
     #menu button {  
-      background-color: transparent;  
-      color: red; /* Button text color */  
-      border: 2px solid red;  
-      padding: 5px 10px;  
-      margin-right: 5px;  
-      cursor: pointer;  
+      background-color: transparent; /* Makes the button background transparent */  
+      color: red; /* Sets the button text color to red */  
+      border: 2px solid red; /* Optional: adds a red border to the buttons */  
+      padding: 5px 10px; /* Adds some padding inside the buttons */  
+      margin-right: 5px; /* Adds some space between the buttons */  
+      cursor: pointer; /* Changes cursor to pointer when hovering over the buttons */  
     }  
     #menu button:hover {  
-      background-color: red;  
-      color: black;  
+      background-color: red; /* Changes background to red on hover */  
+      color: black; /* Changes text color to black on hover */  
     }  
     #websiteLogo {  
-      max-width: 100px;  
-      display: block;  
+      max-width: 100px; /* Adjust logo size as needed */  
+      display: block; /* Makes sure the logo is block-level for proper spacing */  
     }  
     .hidden {  
       display: none;  
