@@ -1,71 +1,84 @@
-<html>  
-<head>  
-  <title>Project Ruin</title>  
-  <link rel="stylesheet" href="styles.css">
-</head>  
-<body>  
-  <header>  
-    <img src="icon.png" alt="Website Logo" id="websiteLogo">  
-    <div id="menu">  
-      <button onclick="window.location.href='#game-section'">Games</button>  
-      <button id="chatRoomBtn">Chat Room</button>  
-      <button onclick="window.location.href='#link-room'">Link Room</button>  
-    </div>        
-  </header>      
-      
-  <div id="game-section">      
-    <!-- Game content goes here -->      
-  </div>      
-      
-  <div id="chat-room" class="hidden">      
-    <div id="draggable-chat-box">  
-      <!-- Chatango Chat Box Embed Code -->    
-      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">    
-          {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}    
-      </script>    
-      <!-- End of Chatango Chat Box Embed Code -->    
-    </div>  
-  </div>      
-      
-  <script>      
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
-      document.getElementById('chat-room').classList.toggle('hidden');    
-    });    
-  
-    // Make the DIV element draggable:  
-    dragElement(document.getElementById("draggable-chat-box"));  
-  
-    function dragElement(elmnt) {  
-      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;  
-      elmnt.onmousedown = dragMouseDown;  
-  
-      function dragMouseDown(e) {  
-        e = e || window.event;  
-        e.preventDefault();  
-        pos3 = e.clientX;  
-        pos4 = e.clientY;  
-        document.onmouseup = closeDragElement;  
-        document.onmousemove = elementDrag;  
-      }  
-  
-      function elementDrag(e) {  
-        e = e || window.event;  
-        e.preventDefault();  
-        pos1 = pos3 - e.clientX;  
-        pos2 = pos4 - e.clientY;  
-        pos3 = e.clientX;  
-        pos4 = e.clientY;  
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";  
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";  
-      }  
-  
-      function closeDragElement() {  
-        // stop moving when mouse button is released:  
-        document.onmouseup = null;  
-        document.onmousemove = null;  
-      }  
+<!DOCTYPE html>  
+<html>    
+<head>    
+  <title>Project Crimson</title>    
+  <link rel="stylesheet" href="styles.css">  
+  <style>  
+    /* Additional styles */  
+    h1.project-title {  
+      color: red; /* Sets the text color to red */  
+      text-align: center; /* Centers the text horizontally */  
+      margin-top: 20vh; /* Positions the title near the middle vertically, adjust as needed */  
+      font-size: 2em; /* Adjust the font size as needed */  
     }  
-  </script>    
-  
-</body>  
+  </style>  
+</head>    
+<body>    
+  <header>    
+    <img src="icon.png" alt="Website Logo" id="websiteLogo">    
+    <div id="menu">    
+      <button onclick="window.location.href='#game-section'">Games</button>    
+      <button id="chatRoomBtn">Chat Room</button>    
+      <button onclick="window.location.href='#link-room'">Link Room</button>    
+    </div>          
+  </header>    
+      
+  <!-- Project Title -->  
+  <h1 class="project-title">Project Crimson</h1>  
+        
+  <div id="game-section">        
+    <!-- Game content goes here -->        
+  </div>        
+        
+  <div id="chat-room" class="hidden">        
+    <div id="draggable-chat-box">    
+      <!-- Chatango Chat Box Embed Code -->      
+      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">      
+          {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}      
+      </script>      
+      <!-- End of Chatango Chat Box Embed Code -->      
+    </div>    
+  </div>        
+        
+  <script>        
+    document.getElementById('chatRoomBtn').addEventListener('click', function() {      
+      document.getElementById('chat-room').classList.toggle('hidden');      
+    });      
+    
+    // Make the DIV element draggable:    
+    dragElement(document.getElementById("draggable-chat-box"));    
+    
+    function dragElement(elmnt) {    
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;    
+      elmnt.onmousedown = dragMouseDown;    
+    
+      function dragMouseDown(e) {    
+        e = e || window.event;    
+        e.preventDefault();    
+        pos3 = e.clientX;    
+        pos4 = e.clientY;    
+        document.onmouseup = closeDragElement;    
+        document.onmousemove = elementDrag;    
+      }    
+    
+      function elementDrag(e) {    
+        e = e || window.event;    
+        e.preventDefault();    
+        pos1 = pos3 - e.clientX;    
+        pos2 = pos4 - e.clientY;    
+        pos3 = e.clientX;    
+        pos4 = e.clientY;    
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";    
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";    
+      }    
+    
+      function closeDragElement() {    
+        // stop moving when mouse button is released:    
+        document.onmouseup = null;    
+        document.onmousemove = null;    
+      }    
+    }    
+  </script>      
+    
+</body>    
 </html>  
