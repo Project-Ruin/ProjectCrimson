@@ -1,75 +1,49 @@
 <!DOCTYPE html>  
-<html>  
+<html lang="en">  
 <head>  
-  <title>Project Ruin</title>  
-  <style>  
-    body {  
-      margin: 0;  
-      padding: 0;  
-      background-color: black; /* Sets the background color of the website to black */  
-      color: white; /* Sets the text color to white for better contrast */  
-    }  
-    header {  
-      position: relative;  
-      width: 100%;  
-    }  
-    #menu {  
-      position: absolute;  
-      top: 0;  
-      right: 0;  
-      padding: 10px;  
-    }  
-    #menu button {  
-      background-color: transparent; /* Makes the button background transparent */  
-      color: red; /* Sets the button text color to red */  
-      border: 2px solid red; /* Optional: adds a red border to the buttons */  
-      padding: 5px 10px; /* Adds some padding inside the buttons */  
-      margin-right: 5px; /* Adds some space between the buttons */  
-      cursor: pointer; /* Changes cursor to pointer when hovering over the buttons */  
-    }  
-    #menu button:hover {  
-      background-color: red; /* Changes background to red on hover */  
-      color: black; /* Changes text color to black on hover */  
-    }  
-    #websiteLogo {  
-      max-width: 100px; /* Adjust logo size as needed */  
-      display: block; /* Makes sure the logo is block-level for proper spacing */  
-    }  
-    .hidden {  
-      display: none;  
-    }  
-  </style>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Document Title</title>  
+    <style>  
+        body {  
+            margin: 0;  
+            padding: 0;  
+            background-color: black; /* Sets the entire page background to black */  
+            color: white; /* Default text color set to white for contrast */  
+        }  
+        #menu button {  
+            background-color: transparent;  
+            color: red; /* Button text color */  
+            border: 2px solid red; /* Adds a red border to the buttons */  
+            cursor: pointer;  
+        }  
+        #menu button:hover {  
+            background-color: red; /* Button background color on hover */  
+            color: black; /* Button text color on hover */  
+        }  
+        .hidden {  
+            display: none; /* Initially hides elements with this class */  
+        }  
+    </style>  
 </head>  
 <body>  
-  <header>  
-    <img src="download(5).jpeg" alt="Website Logo" id="websiteLogo">  
-    <div id="menu">  
-      <button onclick="window.location.href='#game-section'">Games</button>  
-      <button id="chatRoomBtn">Chat Room</button>  
-      <button onclick="window.location.href='#link-room'">Link Room</button>  
+    <header>  
+        <img src="path/to/your/logo.jpeg" alt="Website Logo" style="width:100px;">  
+        <div id="menu">  
+            <button onclick="alert('Navigating to games section')">Games</button>  
+            <button onclick="toggleChatRoom()">Chat Room</button>  
+            <button onclick="alert('Navigating to link room')">Link Room</button>  
+        </div>  
+    </header>  
+    <div id="chat-room" class="hidden">  
+        <!-- Chat room content will be dynamically shown here -->  
+        <p>Chat room content...</p>  
     </div>  
-  </header>  
-  
-  <div id="game-section">  
-    <!-- Game content goes here -->  
-  </div>  
-  
-  <div id="chat-room" class="hidden">  
-    <!-- Chat room content will be shown here after clicking the Chat Room button -->  
-    <p>Chat room content...</p>  
-  </div>  
-  
-  <script>  
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {  
-      var chatRoom = document.getElementById('chat-room');  
-      chatRoom.classList.toggle('hidden');  
-    });  
-  </script>  
+    <script>  
+        function toggleChatRoom() {  
+            var chatRoom = document.getElementById('chat-room');  
+            chatRoom.classList.toggle('hidden');  
+        }  
+    </script>  
 </body>  
 </html>  
-
-</body>  
-</html>  
-
-</body>  
-</html> 
