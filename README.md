@@ -3,8 +3,8 @@
   <title> Project Ruin</title>
 <head>  
 </head> 
-  <header>  
-  <img src="![download (5)](https://github.com/Project-Ruin/ProjectCrimson/assets/168767361/317cde54-5c16-4faa-b57f-91f4b3f69b63)" alt="Website Logo" id="websiteLogo">  
+ <header>  
+  <img src="download(5).jpeg" alt="Website Logo" id="websiteLogo">  
 </header>  
 <body>  
   <div id="menu">  
