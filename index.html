@@ -5,83 +5,109 @@
   <link rel="stylesheet" href="styles.css">  
   <style>  
     /* Additional styles */  
-    h1.project-title {  
-      color: red; /* Sets the text color to red */  
-      text-align: center; /* Centers the text horizontally */  
-      margin-top: 0; /* Adjusted to move the title to the top-middle of the page */  
-      font-size: 2em; /* Adjust the font size as needed */  
+    h1.project-title {    
+      color: red; /* Sets the text color to red */    
+      text-align: center; /* Centers the text horizontally */    
+      margin-top: 0; /* Adjusted to move the title to the top-middle of the page */    
+      font-size: 2em; /* Adjust the font size as needed */    
+    }    
+    
+    /* Draggable chat box styles */    
+    #draggable-chat-box {    
+      position: fixed; /* Or absolute, depending on your needs */    
+      bottom: 20px;    
+      right: 20px;    
+      cursor: move; /* Indicates the element can be moved */    
+    }    
+    
+    /* Social Media Links Styles */    
+    #social-media-links {    
+      display: none; /* Initially hidden */    
+      text-align: center; /* Center the links */    
+      margin: 20px 0; /* Add some space above and below */    
+    }    
+    
+    #social-media-links a {    
+      margin: 0 10px; /* Space out the links */    
+      color: #CC0000; /* Link color */    
+      text-decoration: none; /* No underline */    
+      font-size: 1.2em; /* Bigger text */    
+    }    
+    
+    #social-media-links a:hover {    
+      text-decoration: underline; /* Underline on hover */    
     }  
       
-    /* Draggable chat box styles */  
-    #draggable-chat-box {  
-      position: fixed; /* Or absolute, depending on your needs */  
-      bottom: 20px;  
-      right: 20px;  
-      cursor: move; /* Indicates the element can be moved */  
+    .hidden {  
+      display: none;  
     }  
-      
-    /* Social Media Links Styles */  
-    #social-media-links {  
-      text-align: center; /* Center the links */  
-      margin: 20px 0; /* Add some space above and below */  
-    }  
-      
-    #social-media-links a {  
-      margin: 0 10px; /* Space out the links */  
-      color: #CC0000; /* Link color */  
-      text-decoration: none; /* No underline */  
-      font-size: 1.2em; /* Bigger text */  
-    }  
-      
-    #social-media-links a:hover {  
-      text-decoration: underline; /* Underline on hover */  
-    }  
-  </style>  
-</head>  
-<body>  
-  <header>  
-    <img src="icon.png" alt="Website Logo" id="websiteLogo">  
-    <div id="menu">  
-      <button onclick="window.location.href='#game-section'">Games</button>  
-      <button id="chatRoomBtn">Chat Room</button>  
-      <button onclick="window.location.href='#link-room'">Link Room</button>  
-    </div>  
-  </header>  
+  </style>    
+</head>    
+<body>    
+  <header>    
+    <img src="icon.png" alt="Website Logo" id="websiteLogo">    
+    <div id="menu">    
+      <button id="gamesBtn" onclick="window.location.href='#game-section'">Games</button>    
+      <button id="chatRoomBtn">Chat Room</button>    
+      <button id="linkRoomBtn">Link Room</button>  
+    </div>    
+  </header>    
     
-  <!-- Social Media Links -->  
-  <div id="social-media-links">  
-    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>  
-    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>  
-    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>  
-    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>  
-    <!-- Add more links as needed -->  
-  </div>  
+  <!-- Social Media Links -->    
+  <div id="social-media-links">    
+    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>    
+    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>    
+    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>    
+    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>    
+    <!-- Add more links as needed -->    
+  </div>    
     
-  <!-- Project Title -->  
-  <h1 class="project-title">Project Crimson</h1>  
+  <!-- Project Title -->    
+  <h1 class="project-title">Project Crimson</h1>    
     
-  <div id="game-section">  
-    <!-- Game content goes here -->  
-  </div>  
+  <div id="game-section">    
+    <!-- Game content goes here -->    
+  </div>    
     
-  <div id="chat-room" class="hidden">  
-    <div id="draggable-chat-box">  
-      <!-- Chatango Chat Box Embed Code -->  
-      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">  
-        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}  
-      </script>  
-      <!-- End of Chatango Chat Box Embed Code -->  
-    </div>  
-  </div>  
+  <div id="chat-room" class="hidden">    
+    <div id="draggable-chat-box">    
+      <!-- Chatango Chat Box Embed Code -->    
+      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">    
+        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}    
+      </script>    
+      <!-- End of Chatango Chat Box Embed Code -->    
+    </div>    
+  </div>    
     
   <script>  
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {  
-      document.getElementById('chat-room').classList.toggle('hidden');  
+    document.getElementById('gamesBtn').addEventListener('click', function() {  
+      // Hide other sections when Games is clicked  
+      var socialLinks = document.getElementById('social-media-links');  
+      var chatRoom = document.getElementById('chat-room');  
+        
+      if (!socialLinks.style.display || socialLinks.style.display === "block") {  
+        socialLinks.style.display = "none";  
+      }   
+  
+      if (!chatRoom.classList.contains('hidden')) {  
+        chatRoom.classList.add('hidden');  
+      }  
+    });    
+  
+    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
+      document.getElementById('chat-room').classList.toggle('hidden');    
+      document.getElementById('social-media-links').style.display = "none";  
+    });    
+  
+    document.getElementById('linkRoomBtn').addEventListener('click', function() {    
+      var socialLinks = document.getElementById('social-media-links');    
+      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";  
+      document.getElementById('chat-room').classList.add('hidden');  
     });  
-      
+  
     // Make the DIV element draggable:  
     dragElement(document.getElementById("draggable-chat-box"));  
-      
+  
     function dragElement(elmnt) {  
       var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;  
       elmnt.onmousedown = dragMouseDown;  
@@ -94,7 +120,7 @@
         document.onmouseup = closeDragElement;  
         document.onmousemove = elementDrag;  
       }  
-        
+  
       function elementDrag(e) {  
         e = e || window.event;  
         e.preventDefault();  
@@ -105,9 +131,8 @@
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";  
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";  
       }  
-        
+  
       function closeDragElement() {  
-        // stop moving when mouse button is released:  
         document.onmouseup = null;  
         document.onmousemove = null;  
       }  
@@ -115,4 +140,3 @@
   </script>  
 </body>  
 </html>  
-
