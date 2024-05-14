@@ -45,12 +45,6 @@
   
   <h1 class="project-title">Project Crimson</h1>  
   
-  <div id="adminCommands" class="hidden">  
-    <h2 style="text-align: center; margin-top: 20px;">Welcome to Admin Commands</h2>  
-    <input type="text" id="adminInput" placeholder="Type your command here..." style="display: block; margin: 0 auto;">  
-    <button onclick="restorePage()" style="display: block; margin: 20px auto;">Back</button>  
-  </div>  
-  
   <div id="game-section">  
     <!-- Game iframe -->  
     <iframe src="path_to_your_game.html" frameborder="0" style="width:100%; height:100%;"></iframe>  
@@ -73,49 +67,74 @@
     </div>  
   </div>  
   
+  <div id="adminCommands" class="hidden">  
+    <h2 style="text-align: center; margin-top: 20px;">Welcome to Admin Commands</h2>  
+    <input type="text" id="adminInput" placeholder="Type your command here..." style="display: block; margin: 0 auto;">  
+    <button onclick="restorePage()" style="display: block; margin: 20px auto;">Back</button>  
+  </div>  
+  
   <script>  
-    let typedSequence = '';  
-    
-    document.addEventListener('keypress', function(event) {  
-      typedSequence += event.key.toLowerCase();  
-    
-      if (typedSequence.slice(-7) === 'crimson') {  
-        document.addEventListener('keydown', function handler(e) {  
-          if (e.key === 'Enter') {  
-            let adminCommands = document.getElementById('adminCommands');  
-            let isHidden = adminCommands.classList.contains('hidden');  
-            document.body.childNodes.forEach(function(node) {  
-              if (node.nodeType === 1 && node.id !== 'adminCommands') { // Check for element nodes only  
-                node.style.display = isHidden ? 'none' : '';  
-              }  
-            });  
-            if (isHidden) {  
-              adminCommands.classList.remove('hidden');  
-              adminCommands.style.display = 'block';  
-            } else {  
-              adminCommands.classList.add('hidden');  
-              adminCommands.style.display = 'none';  
-            }  
-            typedSequence = '';  
-            document.removeEventListener('keydown', handler);  
-          }  
-        }, {once: true}); // Ensures the listener is removed after execution  
-      }  
+    document.getElementById('gamesBtn').addEventListener('click', function() {    
+      var gameSection = document.getElementById('game-section');    
+      if (gameSection.style.display === "none" || gameSection.style.display === "") {    
+        gameSection.style.display = "block";    
+      } else {    
+        gameSection.style.display = "none";    
+      }    
+    });    
+  
+    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
+      document.getElementById('chat-room').classList.toggle('hidden');    
+      document.getElementById('social-media-links').style.display = "none";    
+    });    
+  
+    document.getElementById('linkRoomBtn').addEventListener('click', function() {    
+      var socialLinks = document.getElementById('social-media-links');    
+      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";    
+      document.getElementById('chat-room').classList.add('hidden');    
     });  
-    
-    function restorePage() {  
-      let adminCommands = document.getElementById('adminCommands');  
-      document.body.childNodes.forEach(function(node) {  
-        if (node.nodeType === 1) { // Check for element nodes only  
-          node.style.display = '';  
-        }  
-      });  
-      adminCommands.classList.add('hidden');  
-      adminCommands.style.display = 'none';  
-    }  
-    
-    // Existing dragElement function remains the same  
-    dragElement(document.getElementById("draggable-chat-box"));  
+  
+    let typedSequence = '';    
+      
+    document.addEventListener('keypress', function(event) {    
+      typedSequence += event.key.toLowerCase();    
+      
+      if (typedSequence.slice(-7) === 'crimson') {    
+        document.addEventListener('keydown', function handler(e) {    
+          if (e.key === 'Enter') {    
+            let adminCommands = document.getElementById('adminCommands');    
+            let isHidden = adminCommands.classList.contains('hidden');    
+            document.body.childNodes.forEach(function(node) {    
+              if (node.nodeType === 1 && node.id !== 'adminCommands') { // Check for element nodes only    
+                node.style.display = isHidden ? 'none' : '';    
+              }    
+            });    
+            if (isHidden) {    
+              adminCommands.classList.remove('hidden');    
+              adminCommands.style.display = 'block';    
+            } else {    
+              adminCommands.classList.add('hidden');    
+              adminCommands.style.display = 'none';    
+            }    
+            typedSequence = '';    
+            document.removeEventListener('keydown', handler);    
+          }    
+        }, {once: true}); // Ensures the listener is removed after execution    
+      }    
+    });    
+  
+    function restorePage() {    
+      let adminCommands = document.getElementById('adminCommands');    
+      document.body.childNodes.forEach(function(node) {    
+        if (node.nodeType === 1) { // Check for element nodes only    
+          node.style.display = '';    
+        }    
+      });    
+      adminCommands.classList.add('hidden');    
+      adminCommands.style.display = 'none';    
+    }    
+  
+    dragElement(document.getElementById("draggable-chat-box"));    
   </script>  
 </body>  
 </html>  
