@@ -9,8 +9,7 @@
       text-align: center;    
       margin-top: 0;    
       font-size: 2em;    
-      position: relative; /* Ensure the title is positioned in the flow. */  
-      z-index: 2; /* Lower than social-media-links to allow links to overlay */  
+      transition: margin-top 0.5s ease; /* Smooth transition for moving up/down */  
     }    
     #draggable-chat-box {    
       position: fixed;    
@@ -24,23 +23,22 @@
     #game-section {    
       position: fixed;    
       bottom: 20px;    
-      left: 20px; /* Adjusted to bottom left */  
-      display: none; /* Initially hidden */    
-      z-index: 500; /* Ensures it doesn't overlap the social links when they're visible */    
+      left: 20px;    
+      display: none;    
+      z-index: 500;    
     }    
     #social-media-links {    
       position: fixed;    
       top: 0;    
-      left: 50%; /* Center the links */  
-      transform: translateX(-50%); /* Adjust position to truly center based on element's width */  
-      display: none; /* Keeps initial state as hidden */  
-      padding: 10px 0;    
+      left: 50%;    
+      transform: translateX(-50%);    
+      display: none;    
       text-align: center;    
-      z-index: 1000; /* Keeps it above other content, including the title */  
+      z-index: 1000;    
     }    
     #social-media-links a {    
       margin: 0 10px;    
-      color: #CC0000;    
+      color: lightblue; /* Updated to light blue for better visibility */  
       text-decoration: none;    
       font-size: 1.2em;    
     }    
@@ -84,31 +82,36 @@
   
   <script>  
     document.getElementById('gamesBtn').addEventListener('click', function() {    
-      var gameSection = document.getElementById('game-section');    
-      if (gameSection.style.display === "none" || gameSection.style.display === "") {    
-        gameSection.style.display = "block";    
-      } else {    
-        gameSection.style.display = "none";    
-      }    
+      document.getElementById('game-section').classList.toggle('hidden');    
     });    
   
     document.getElementById('chatRoomBtn').addEventListener('click', function() {    
       document.getElementById('chat-room').classList.toggle('hidden');    
-      document.getElementById('social-media-links').style.display = "none";    
+      document.getElementById('social-media-links').classList.add('hidden'); // Hide social links if chat room is opened  
+      adjustTitleMargin(); // Adjust title margin based on visibility  
     });    
   
     document.getElementById('linkRoomBtn').addEventListener('click', function() {    
       var socialLinks = document.getElementById('social-media-links');    
-      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";    
-      document.getElementById('chat-room').classList.add('hidden');    
+      if (socialLinks.style.display === "none" || socialLinks.style.display === "") {    
+        socialLinks.style.display = "block";    
+        adjustTitleMargin(true); // Move title down  
+      } else {    
+        socialLinks.style.display = "none";    
+        adjustTitleMargin(false); // Move title back up  
+      }    
     });  
   
-    // Ensure drag functionality is defined if you're keeping draggable chat box  
-    dragElement(document.getElementById("draggable-chat-box"));    
-  
-    function dragElement(elmnt) {  
-      // Your existing drag logic  
+    function adjustTitleMargin(show) {  
+      var title = document.querySelector('.project-title');  
+      if (show) {  
+        title.style.marginTop = "50px"; // Adjust this value based on the height of your links  
+      } else {  
+        title.style.marginTop = "0px";  
+      }  
     }  
+  
+    // Add dragElement function here if needed  
   </script>  
 </body>  
 </html>  
