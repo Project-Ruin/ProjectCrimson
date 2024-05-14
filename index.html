@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="styles.css">  
   <style>  
     body {  
-      margin-top: 50px; /* Space for the social media links */  
       transition: margin-top 0.5s ease; /* Smooth transition */  
     }  
     h1.project-title {      
@@ -26,7 +25,7 @@
     #game-section {      
       position: fixed;      
       bottom: 20px;      
-      left: 20px; /* Now at the bottom left */  
+      left: 20px; /* Bottom left */  
       display: none;      
       z-index: 500;      
     }      
@@ -48,6 +47,11 @@
     }      
     #social-media-links a:hover {      
       text-decoration: underline;      
+    }      
+    #adminCommands {      
+      display: none; /* Initially hidden */      
+      text-align: center;      
+      margin-top: 20px;      
     }      
   </style>    
 </head>    
@@ -80,6 +84,12 @@
         {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}    
       </script>    
     </div>    
+  </div>     
+  
+  <div id="adminCommands" class="hidden">    
+    <h2>Welcome to Admin Commands</h2>    
+    <input type="text" id="adminInput" placeholder="Type your command here..." style="display: block; margin: 0 auto;">    
+    <button onclick="restorePage()">Back</button>    
   </div>    
   
   <script>    
@@ -89,24 +99,42 @@
   
     document.getElementById('chatRoomBtn').addEventListener('click', function() {      
       document.getElementById('chat-room').classList.toggle('hidden');      
-      toggleSocialLinks(false); // Hide social links      
+      document.getElementById('social-media-links').style.display = "none";      
     });      
   
     document.getElementById('linkRoomBtn').addEventListener('click', function() {      
-      toggleSocialLinks(); // Toggle visibility of social links      
+      toggleSocialLinks();     
     });    
   
-    function toggleSocialLinks(show = null) {  
+    let typedSequence = '';      
+    document.addEventListener('keypress', function(event) {      
+      typedSequence += event.key.toLowerCase();      
+      if (typedSequence.includes('crimson')) {      
+        document.getElementById('adminCommands').style.display = 'block';     
+        typedSequence = ''; // Reset sequence after displaying admin commands  
+      }      
+    });      
+  
+    function toggleSocialLinks() {  
       var socialLinks = document.getElementById('social-media-links');  
-      var isDisplayed = socialLinks.style.display !== "none";  
-      if(show === null) { show = !isDisplayed; } // Toggle if show is null  
-      socialLinks.style.display = show ? "block" : "none";  
-      document.body.style.marginTop = show ? "50px" : "0px"; // Adjust body top margin  
+      if (socialLinks.style.display === "none") {  
+        socialLinks.style.display = "block";  
+        document.body.style.marginTop = "50px"; // Push content down  
+      } else {  
+        socialLinks.style.display = "none";  
+        document.body.style.marginTop = "0px"; // Move content back up  
+      }  
     }  
+  
+    function restorePage() {      
+      document.getElementById('adminCommands').style.display = 'none';      
+    }      
   
     dragElement(document.getElementById("draggable-chat-box"));      
   
-    // Existing dragElement logic here    
+    function dragElement(elmnt) {  
+      // Your existing drag logic  
+    }  
   </script>    
 </body>    
 </html>  
