@@ -4,103 +4,111 @@
   <title>Project Crimson</title>  
   <link rel="stylesheet" href="styles.css">  
   <style>  
-    h1.project-title {      
-      color: red;      
-      text-align: center;      
-      margin-top: 0;      
-      font-size: 2em;      
-      position: relative;    
-      z-index: 2;    
-    }      
-    #draggable-chat-box {      
-      position: fixed;      
-      bottom: 20px;      
-      right: 20px;      
-      cursor: move;      
-    }      
-    .hidden {      
-      display: none;      
-    }      
-    #game-section {      
-      position: fixed;      
-      bottom: 20px;      
-      left: 20px; /* Adjusted to bottom left as per the second snippet */    
-      display: none;      
-      width: 300px;     
-      height: 200px;      
-      z-index: 500;      
-    }      
-    #social-media-links {      
-      position: fixed;      
-      top: 0;      
-      left: 50%;    
-      transform: translateX(-50%);      
-      display: none;      
-      background-color: #fff;      
-      padding: 10px 0;      
-      text-align: center;      
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);      
-      z-index: 1000;      
-    }      
-    #social-media-links a {      
-      margin: 0 10px;      
-      color: #CC0000; /* Consider light blue for better visibility if needed */  
-      text-decoration: none;      
-      font-size: 1.2em;      
-    }      
-    #social-media-links a:hover {      
-      text-decoration: underline;      
-    }      
-  </style>    
-</head>    
-<body>    
-  <header>    
-    <img src="icon.png" alt="Website Logo" id="websiteLogo">    
-    <div id="menu">    
-      <button id="gamesBtn">Games</button>    
-      <button id="chatRoomBtn">Chat Room</button>    
-      <button id="linkRoomBtn">Link Room</button>    
-    </div>    
-  </header>    
-    
-  <h1 class="project-title">Project Crimson</h1>    
-    
-  <div id="game-section">    
-    <iframe src="path_to_your_game.html" frameborder="0" style="width:100%; height:100%;"></iframe>    
-  </div>    
-    
-  <div id="social-media-links">    
-    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>    
-    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>    
-    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>    
-    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>    
-  </div>    
-    
-  <div id="chat-room" class="hidden">    
-    <div id="draggable-chat-box">    
-      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">    
-        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}    
-      </script>    
-    </div>    
-  </div>    
-    
-  <script>    
-    document.getElementById('gamesBtn').addEventListener('click', function() {      
-      document.getElementById('game-section').classList.toggle('hidden');      
-    });      
-    
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {      
-      document.getElementById('chat-room').classList.toggle('hidden');      
-      document.getElementById('social-media-links').style.display = "none";      
-    });      
-    
-    document.getElementById('linkRoomBtn').addEventListener('click', function() {      
-      var socialLinks = document.getElementById('social-media-links');      
-      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";      
-      document.getElementById('chat-room').classList.add('hidden');      
+    h1.project-title {    
+      color: red;    
+      text-align: center;    
+      margin-top: 0;    
+      font-size: 2em;    
+      position: relative; /* Ensure the title is positioned in the flow. */  
+      z-index: 2; /* Lower than social-media-links to allow links to overlay */  
+    }    
+    #draggable-chat-box {    
+      position: fixed;    
+      bottom: 20px;    
+      right: 20px;    
+      cursor: move;    
+    }    
+    .hidden {    
+      display: none;    
+    }    
+    #game-section {    
+      position: fixed;    
+      bottom: 20px;    
+      left: 20px; /* Adjusted to bottom left */  
+      display: none; /* Initially hidden */    
+      z-index: 500; /* Ensures it doesn't overlap the social links when they're visible */    
+    }    
+    #social-media-links {    
+      position: fixed;    
+      top: 0;    
+      left: 50%; /* Center the links */  
+      transform: translateX(-50%); /* Adjust position to truly center based on element's width */  
+      display: none; /* Keeps initial state as hidden */  
+      padding: 10px 0;    
+      text-align: center;    
+      z-index: 1000; /* Keeps it above other content, including the title */  
+    }    
+    #social-media-links a {    
+      margin: 0 10px;    
+      color: #CC0000;    
+      text-decoration: none;    
+      font-size: 1.2em;    
+    }    
+    #social-media-links a:hover {    
+      text-decoration: underline;    
+    }    
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <img src="icon.png" alt="Website Logo" id="websiteLogo">  
+    <div id="menu">  
+      <button id="gamesBtn">Games</button>  
+      <button id="chatRoomBtn">Chat Room</button>  
+      <button id="linkRoomBtn">Link Room</button>  
+    </div>  
+  </header>  
+  
+  <h1 class="project-title">Project Crimson</h1>  
+  
+  <div id="game-section">  
+    <!-- Game iframe -->  
+    <iframe src="path_to_your_game.html" frameborder="0" style="width:100%; height:100%;"></iframe>  
+  </div>  
+  
+  <div id="social-media-links">  
+    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>  
+    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>  
+    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>  
+    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>  
+  </div>  
+  
+  <div id="chat-room" class="hidden">  
+    <div id="draggable-chat-box">  
+      <!-- Chat Box Embed Code -->  
+      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">  
+        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}  
+      </script>  
+    </div>  
+  </div>  
+  
+  <script>  
+    document.getElementById('gamesBtn').addEventListener('click', function() {    
+      var gameSection = document.getElementById('game-section');    
+      if (gameSection.style.display === "none" || gameSection.style.display === "") {    
+        gameSection.style.display = "block";    
+      } else {    
+        gameSection.style.display = "none";    
+      }    
     });    
-    
-    // Add drag functionality for draggable chat box as needed  
-  </script>    
-</body>    
+  
+    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
+      document.getElementById('chat-room').classList.toggle('hidden');    
+      document.getElementById('social-media-links').style.display = "none";    
+    });    
+  
+    document.getElementById('linkRoomBtn').addEventListener('click', function() {    
+      var socialLinks = document.getElementById('social-media-links');    
+      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";    
+      document.getElementById('chat-room').classList.add('hidden');    
+    });  
+  
+    // Ensure drag functionality is defined if you're keeping draggable chat box  
+    dragElement(document.getElementById("draggable-chat-box"));    
+  
+    function dragElement(elmnt) {  
+      // Your existing drag logic  
+    }  
+  </script>  
+</body>  
 </html>  
