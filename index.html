@@ -3,138 +3,116 @@
 <head>  
   <title>Project Crimson</title>  
   <link rel="stylesheet" href="styles.css">  
-  <style>  
-    h1.project-title {    
-      color: red;    
-      text-align: center;    
-      margin-top: 0;    
-      font-size: 2em;    
-    }    
-    #draggable-chat-box {    
-      position: fixed;    
-      bottom: 20px;    
-      right: 20px;    
-      cursor: move;    
-    }    
-    .hidden {    
-      display: none;    
-    }    
-    #game-section, #social-media-links {    
-      display: none; /* Initially hidden */    
-    }    
-    #social-media-links a {    
-      margin: 0 10px;    
-      color: #CC0000;    
-      text-decoration: none;    
-      font-size: 1.2em;    
-    }    
-    #social-media-links a:hover {    
-      text-decoration: underline;    
-    }    
-  </style>  
-</head>  
-<body>  
-  <header>  
-    <img src="icon.png" alt="Website Logo" id="websiteLogo">  
-    <div id="menu">  
-      <button id="gamesBtn">Games</button>  
-      <button id="chatRoomBtn">Chat Room</button>  
-      <button id="linkRoomBtn">Link Room</button>  
-    </div>  
-  </header>  
+  <style>    
+    h1.project-title {      
+      color: red;      
+      text-align: center;      
+      margin-top: 0;      
+      font-size: 2em;      
+    }      
+    #draggable-chat-box {      
+      position: fixed;      
+      bottom: 20px;      
+      right: 20px;      
+      cursor: move;      
+    }      
+    .hidden {      
+      display: none;      
+    }      
+    #game-section {      
+      position: fixed;      
+      bottom: 20px;      
+      left: 20px; /* Adjusted to bottom left */  
+      display: none; /* Remains initially hidden */  
+      width: 300px; /* Example width, adjust as needed */  
+      height: 200px; /* Example height, adjust as needed */  
+      z-index: 500; /* Ensure it's above most other content but below popups like admin commands */  
+    }      
+    #social-media-links {      
+      display: none; /* Initially hidden */  
+    }      
+    #social-media-links a {      
+      margin: 0 10px;      
+      color: cyan; /* Changed to cyan for better visibility */  
+      text-decoration: none;      
+      font-size: 1.2em;      
+    }      
+    #social-media-links a:hover {      
+      text-decoration: underline;      
+    }      
+  </style>    
+</head>    
+<body>    
+  <header>    
+    <img src="icon.png" alt="Website Logo" id="websiteLogo">    
+    <div id="menu">    
+      <button id="gamesBtn">Games</button>    
+      <button id="chatRoomBtn">Chat Room</button>    
+      <button id="linkRoomBtn">Link Room</button>    
+    </div>    
+  </header>    
   
-  <h1 class="project-title">Project Crimson</h1>  
+  <h1 class="project-title">Project Crimson</h1>    
   
-  <div id="game-section">  
-    <!-- Game iframe -->  
-    <iframe src="path_to_your_game.html" frameborder="0" style="width:100%; height:100%;"></iframe>  
-  </div>  
+  <div id="game-section">    
+    <iframe src="path_to_your_game.html" frameborder="0" style="width:100%; height:100%;"></iframe>    
+  </div>    
   
-  <div id="social-media-links">  
-    <!-- Social media links -->  
-    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>  
-    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>  
-    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>  
-    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>  
-  </div>  
+  <div id="social-media-links">    
+    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>    
+    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>    
+    <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>    
+    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>    
+  </div>    
   
-  <div id="chat-room" class="hidden">  
-    <div id="draggable-chat-box">  
-      <!-- Chat Box Embed Code -->  
-      <script id="cid0020000376351096633" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 250px;height: 350px;">  
-        {"handle":"message-menu","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}  
-      </script>  
-    </div>  
-  </div>  
+  <div id="chat-room" class="hidden">    
+    <div id="draggable-chat-box">    
+      <!-- Chat Box Embed Code -->    
+    </div>    
+  </div>    
   
-  <div id="adminCommands" class="hidden">  
-    <h2 style="text-align: center; margin-top: 20px;">Welcome to Admin Commands</h2>  
-    <input type="text" id="adminInput" placeholder="Type your command here..." style="display: block; margin: 0 auto;">  
-    <button onclick="restorePage()" style="display: block; margin: 20px auto;">Back</button>  
-  </div>  
+  <div id="adminCommands" class="hidden">    
+    <h2 style="text-align: center; margin-top: 20px;">Welcome to Admin Commands</h2>    
+    <input type="text" id="adminInput" placeholder="Type your command here..." style="display: block; margin: 0 auto;">    
+    <button onclick="restorePage()" style="display: block; margin: 20px auto;">Back</button>    
+  </div>    
   
-  <script>  
-    document.getElementById('gamesBtn').addEventListener('click', function() {    
-      var gameSection = document.getElementById('game-section');    
-      if (gameSection.style.display === "none" || gameSection.style.display === "") {    
-        gameSection.style.display = "block";    
-      } else {    
-        gameSection.style.display = "none";    
-      }    
+  <script>    
+    document.getElementById('gamesBtn').addEventListener('click', function() {      
+      var gameSection = document.getElementById('game-section');      
+      gameSection.classList.toggle('hidden');      
+    });      
+  
+    document.getElementById('linkRoomBtn').addEventListener('click', function() {      
+      var socialLinks = document.getElementById('social-media-links');      
+      var isVisible = socialLinks.style.display !== "none";      
+      socialLinks.style.display = isVisible ? "none" : "block";    
     });    
   
-    document.getElementById('chatRoomBtn').addEventListener('click', function() {    
-      document.getElementById('chat-room').classList.toggle('hidden');    
-      document.getElementById('social-media-links').style.display = "none";    
-    });    
+    let typedSequence = '';      
+    document.addEventListener('keypress', function(event) {      
+      typedSequence += event.key.toLowerCase();      
+      if (typedSequence.slice(-7) === 'crimson') {      
+        document.body.childNodes.forEach(function(node) {      
+          if (node.nodeType === 1 && node.id !== 'adminCommands' && node.tagName !== 'SCRIPT') {      
+            node.style.display = 'none';      
+          }      
+        });      
+        document.getElementById('adminCommands').style.display = 'block';      
+        typedSequence = ''; // Reset the sequence      
+      }      
+    });      
   
-    document.getElementById('linkRoomBtn').addEventListener('click', function() {    
-      var socialLinks = document.getElementById('social-media-links');    
-      socialLinks.style.display = socialLinks.style.display === "none" ? "block" : "none";    
-      document.getElementById('chat-room').classList.add('hidden');    
-    });  
+    function restorePage() {      
+      document.querySelectorAll('header, .project-title, #game-section, #social-media-links, #chat-room').forEach(function(node) {  
+        node.style.display = ''; // Reset display  
+      });      
+      document.getElementById('adminCommands').style.display = 'none';      
+      document.getElementById('game-section').style.display = 'none'; // Keep game section hidden until toggled  
+      document.getElementById('social-media-links').style.display = 'none'; // Keep social links hidden until toggled  
+    }      
   
-    let typedSequence = '';    
-      
-    document.addEventListener('keypress', function(event) {    
-      typedSequence += event.key.toLowerCase();    
-      
-      if (typedSequence.slice(-7) === 'crimson') {    
-        document.addEventListener('keydown', function handler(e) {    
-          if (e.key === 'Enter') {    
-            let adminCommands = document.getElementById('adminCommands');    
-            let isHidden = adminCommands.classList.contains('hidden');    
-            document.body.childNodes.forEach(function(node) {    
-              if (node.nodeType === 1 && node.id !== 'adminCommands') { // Check for element nodes only    
-                node.style.display = isHidden ? 'none' : '';    
-              }    
-            });    
-            if (isHidden) {    
-              adminCommands.classList.remove('hidden');    
-              adminCommands.style.display = 'block';    
-            } else {    
-              adminCommands.classList.add('hidden');    
-              adminCommands.style.display = 'none';    
-            }    
-            typedSequence = '';    
-            document.removeEventListener('keydown', handler);    
-          }    
-        }, {once: true}); // Ensures the listener is removed after execution    
-      }    
-    });    
-  
-    function restorePage() {    
-      let adminCommands = document.getElementById('adminCommands');    
-      document.body.childNodes.forEach(function(node) {    
-        if (node.nodeType === 1) { // Check for element nodes only    
-          node.style.display = '';    
-        }    
-      });    
-      adminCommands.classList.add('hidden');    
-      adminCommands.style.display = 'none';    
-    }    
-  
-    dragElement(document.getElementById("draggable-chat-box"));    
-  </script>  
-</body>  
+    // Function for draggable chat box, if necessary  
+  </script>    
+</body>    
 </html>  
